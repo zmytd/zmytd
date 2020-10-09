@@ -1,0 +1,7 @@
+name = input("hello word")
+print(name)
+print(5 // 2)
+print(ord('a'))
+print(chr(99))
+print(len("中文"))
+print("中文".replace("中","郑"))
