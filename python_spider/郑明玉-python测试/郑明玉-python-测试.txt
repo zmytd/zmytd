@@ -1,0 +1,146 @@
+一，选择题
+	以下哪个不是python解释器------py
+		CPython
+		IPython
+		Jython
+		py
+	下列哪个表达式在Python中是非法的？------x = (y = z + 1)
+		x = y = z = 1
+		x = (y = z + 1)
+		x, y = y, x
+		x += y
+	print("%d %% %d"%(3, 5)) 输出结果是？------3 % 5
+		3 % 5
+		3 %% 5
+		2
+		1
+	“今年第一季度GDP提高了x%”，x为float值，格式化字符串，x保留两位小数，下面哪个是正确的？------print("今年第一季度GDP提高了%.2f"%(22.234,))
+		print("今年第一季度GDP提高了%.2f"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%%"%(22.234,))
+		print("今年第一季度GDP提高了{0}%".format(22.234))
+	l = ["cdsa", 32, 33.2, None, True];l.pop();print(l);打印结果是：------['cdsa', 32, 33.2, None]
+		["cdsa", 32, 33.2, True]
+		["cdsa", 32, None, True]
+		["cdsa", 32, 33.2, None]
+		[32, 33.2, None, True]
+	print(15 // 2);------7
+		1
+		7
+		7.5
+		8
+	下面哪个不是 python 的数据类型------double
+		int
+		str
+		set
+		double
+	*args 代表什么参数------可变参数
+		位置参数
+		可变参数
+		可变关键字参数
+		命名关键字参数
+	函数多个返回值，实际上返回的是什么数据类型？------ tuple
+		list
+		set
+		tuple
+		dict
+	安装Django2.0.7版本，使用的什么命令？------ pip install django==2.0.7
+		pip install django
+		pip install django=2.0.7
+		pip install django==2.0.7
+		pip install django version=2.0.7
+
+二、填空题
+	字符串前面添加u、r、b分别代表什么？
+		u:表示unicode字符串
+		r:表示非转义的原始字符串
+		b:表示bytes
+	
+	requests模块请求远程服务器，如何设置相应编码？
+		requests.get(url).apparent_encoding  根据上下文推断编码
+	
+	windows下执行python的方式；
+		cmd模式下输入python然后回车
+	
+	创建python package，会自动生成什么文件？
+		会自动生成__init__.py文件
+	
+	python变量作用域有哪些？
+		local，局部作用域
+		enclosing，嵌套的父级函数的局部作用域，即包含此函数的上级函数的局部作用域，但不是全局
+		globa，全局变量，就是模块级别定义的变量
+		 builtins内置模块的名字空间
+	
+三、问答题
+	python命名规则？
+
+1，模块命名
+（1）模块推荐使用小写命名，
+（2）除非有很多字母，尽量不要用下划线
+
+2，类命名
+（1）类名使用驼峰(CamelCase)命名风格，首字母大写；
+（2）私有类可用一个下划线开头。
+
+3，函数命名
+（1）函数名一律小写，如有多个单词，用下划线隔开
+（2）类内部函数命名，用单下划线(_)开头（该函数可被继承访问）
+（3）类内私有函数命名，用双下划线(__)开头（该函数不可被继承访问）
+
+4，变量命令
+（1）变量名推荐小写，如有多个单词，用下划线隔开
+（2）类内部变量命名，用单下划线(_)开头（该变量可被继承访问）
+（3）类内私有变量命名，用双下划线(__)开头（该变量不可被继承访问）
+	
+	set删除操作中，pop、remove的区别？
+		pop移除最后一个元素
+		remove(xxx)移除set中的xxx元素
+	
+	list使用+=和append函数的区别？
+		list1 += list2  把list2中的元素加入到list1的后面
+		list.append(list2)	把list2当做一个list 整体加入到list1中
+	
+	使用bs4解析响应内容，获取某div（class为aaa）下所有span节点；
+		bs.find("div", attrs={"class": "aaa"}).find_all("span")
+	
+	
+	简述Django操作流程、组件的作用；
+四、编程题
+	定义一个函数，接受 0 个或多个函数，返回累计乘积；
+	def multiply(m, *args):
+		for n in args:
+			m = m * n
+	
+	定义一个函数，去掉字符串前后的空格；
+		def trim(s):
+    # print("in：", s)
+    if len(s) < 0:
+        return ''
+    
+    # 去掉前面空格
+    index = 0
+    while index < len(s):
+        if s[index] == ' ':
+            if index+1 == len(s):
+                return ''
+            else:
+                index += 1
+        else:
+            s = s[index:]
+            break
+    
+    # print("-：", s, "-")
+    
+    # 去掉后面空格
+    index=-1
+    while index >= -len(s):
+        if s[index] == ' ':
+            index -= 1
+        else:
+            if index == -1:
+                break
+            else:
+                s = s[:index+1]
+                break
+    # print("out：", s)
+    return s
